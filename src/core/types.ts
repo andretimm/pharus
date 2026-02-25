@@ -10,7 +10,7 @@ export interface Metric {
   timestamp: string; // ISO string
   userAgent?: string;
   ip?: string;
-  error?: string;
+  //error?: string; TODO: Add error message to metric
   metadata?: Record<string, any>;
   body?: any;
   query?: any;
