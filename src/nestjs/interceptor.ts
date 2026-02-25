@@ -124,7 +124,7 @@ export class MetricsInterceptor implements NestInterceptor {
           requestId,
         );
         metric.statusCode = statusCode; // Ensure it's correct
-        metric.error = error.message;
+        //metric.error = error.message; TODO: Add error message to metric
 
         this.collector.add(metric);
 
