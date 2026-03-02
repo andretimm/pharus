@@ -8,7 +8,7 @@ export const metricsMiddleware = (options: MetricsOptions) => {
   const collector = MetricsCollector.initialize(options);
 
   return (req: Request, res: Response, next: NextFunction) => {
-    if (options.enabled === false) {
+    if (options.enabled === false || req.method === 'OPTIONS') {
       return next();
     }
 
