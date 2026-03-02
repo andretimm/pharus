@@ -33,6 +33,10 @@ export class MetricsInterceptor implements NestInterceptor {
     const req = httpContext.getRequest();
     const res = httpContext.getResponse();
 
+    if (req.method === 'OPTIONS') {
+      return next.handle();
+    }
+
     const startTime = Date.now();
     const requestId = req.id || (req as any).requestId || uuidv4();
     // Ensure request ID is attached for downstream usage if it wasn't there

@@ -22,6 +22,8 @@ const metricsPlugin: FastifyPluginAsync<MetricsOptions> = async (fastify, option
   });
 
   fastify.addHook('onResponse', async (req, reply) => {
+    if (req.method === 'OPTIONS') return;
+
     const start = (req as any).metricsStartTime || Date.now();
     const duration = Date.now() - start;
 
